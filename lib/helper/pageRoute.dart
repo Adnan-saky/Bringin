@@ -1,10 +1,12 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../Views/screens/startPage.dart';
 
-class page{
+
+class AllPages{
   static List<GetPage<dynamic>> pages() {
     return[
-      // GetPage(name: '/', page: () => OTPPage()),
+       GetPage(name: '/', page: () => const StartPage()),
       // GetPage(name: '/second', page: () => VerifyOTPPage()),
       // GetPage(name: '/third', page: () => UserProfilePage()),
     ];
