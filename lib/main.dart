@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:bringin/helper/pageRoute.dart';
+import 'helper/pageRoute.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<GetPage<dynamic>> pagelist = page.pages();
+    List<GetPage<dynamic>> pageList = AllPages.pages();
     return GetMaterialApp(
       //home: OTPPage(),
-      getPages: pagelist
+      getPages: pageList
       // [
       //   GetPage(name: '/', page: () => OTPPage()),
       //   GetPage(name: '/second', page: () => VerifyOTPPage()),
