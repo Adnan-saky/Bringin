@@ -43,6 +43,9 @@ class SignIn extends StatelessWidget {
               decoration: const InputDecoration(
                 labelText: 'Phone Number',
                 border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(25),
+                    ),
                   borderSide: BorderSide(),
                 ),
               ),
