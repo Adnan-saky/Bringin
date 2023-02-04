@@ -31,9 +31,6 @@ class _OTPSentState extends State<OTPSent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('KindaCode'),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
