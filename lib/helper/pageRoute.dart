@@ -1,6 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../Views/screens/startPage.dart';
+import '../Views/screens/start_page.dart';
 
 
 class AllPages{
