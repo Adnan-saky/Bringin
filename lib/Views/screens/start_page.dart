@@ -35,6 +35,7 @@ class StartPage extends StatelessWidget {
               color: Colors.black,
             ),
           ),
+          ProgressIndicatorTheme(data: data, child: child)
           const SizedBox(
             height: 300,
           ),
