@@ -25,7 +25,7 @@ class LoginSelect extends StatelessWidget {
         ElevatedButton(
             onPressed: () {
 
-              Get.to(SignIn());
+              Get.to(() => SignIn());
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.greenAccent,
