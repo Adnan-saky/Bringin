@@ -23,7 +23,11 @@ class OtpInput extends StatelessWidget {
         decoration: InputDecoration(
             filled: true,
             fillColor: Colors.grey[300],
-            border: const OutlineInputBorder(),
+            border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25),
+                )
+            ),
             counterText: '',
             hintStyle: const TextStyle(color: Colors.black, fontSize: 20.0)),
         onChanged: (value) {
