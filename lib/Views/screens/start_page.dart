@@ -14,7 +14,7 @@ class _StartPage extends State<StartPage>{
   void initState() {
     // TODO: implement onInit
     super.initState();
-    Future.delayed(Duration(seconds: 1)).then((value) {
+    Future.delayed(Duration(seconds: 5)).then((value) {
       Get.offAll(() => LoginSelect());
     });
   }
@@ -23,55 +23,55 @@ class _StartPage extends State<StartPage>{
   @override
   Widget build(BuildContext context) {
 
-    double height = MediaQuery.of(context).size.height;
-    return Center(
-      child: Column(
-        children: [
-          const Padding(padding: EdgeInsets.fromLTRB(0, 165, 0, 0)),
-          Image.asset(
-            'assets/logo/logo.png',
-          ),
-          const SizedBox(
-            height: 50.0,
-          ),
-          const Text(
-            'Bringin',
-            style: TextStyle(
-              decoration: TextDecoration.none,
-              fontSize: 35,
-              color: Colors.black,
+    return Scaffold(
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(padding: EdgeInsets.fromLTRB(0, 165, 0, 0)),
+            Image.asset(
+              'assets/logo/logo.png',
             ),
-          ),
-          const SizedBox(
-            height: 30.0,
-          ),
-          const Text(
-            'Instant Chat, Hire Direct',
-            style: TextStyle(
-              decoration: TextDecoration.none,
-              fontSize: 20,
-              color: Colors.black,
+            const SizedBox(
+              height: 50.0,
             ),
-          ),
-          Center(
-              child: LoadingAnimationWidget.prograssiveDots(
-                color: Colors.greenAccent,
-                size: 100,
+            const Text(
+              'Bringin',
+              style: TextStyle(
+                decoration: TextDecoration.none,
+                fontSize: 35,
+                color: Colors.black,
               ),
-          ),
-          const SizedBox(
-            height: 100,
-          ),
-          const Text(
-            'Bringin Technologies Ltd.',
-            style: TextStyle(
-              decoration: TextDecoration.none,
-              fontSize: 20,
-              color: Colors.black,
             ),
-          ),
-        ],
-      ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            const Text(
+              'Instant Chat, Hire Direct',
+              style: TextStyle(
+                decoration: TextDecoration.none,
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+            Center(
+                child: LoadingAnimationWidget.prograssiveDots(
+                  color: Colors.greenAccent,
+                  size: 100,
+                ),
+            ),
+            const SizedBox(
+              height: 100,
+            ),
+            const Text(
+              'Bringin Technologies Ltd.',
+              style: TextStyle(
+                decoration: TextDecoration.none,
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
     );
   }
 }
