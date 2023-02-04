@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     return Center(
       child: Column(
@@ -35,7 +38,12 @@ class StartPage extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          ProgressIndicatorTheme(data: data, child: child)
+          Center(
+              child: LoadingAnimationWidget.prograssiveDots(
+                color: Colors.white,
+                size: 200,
+              ),
+          ),
           const SizedBox(
             height: 300,
           ),
