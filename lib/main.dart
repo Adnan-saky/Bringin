@@ -9,16 +9,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     List<GetPage<dynamic>> pageList = AllPages.pages();
     return GetMaterialApp(
-      //home: OTPPage(),
-      getPages: pageList
-      // [
-      //   GetPage(name: '/', page: () => OTPPage()),
-      //   GetPage(name: '/second', page: () => VerifyOTPPage()),
-      //   GetPage(name: '/third', page: () => UserProfilePage()),
-      //
-      // ],
-    );
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        themeMode: ThemeMode.dark,
+        //home: OTPPage(),
+        getPages: pageList
+        // [
+        //   GetPage(name: '/', page: () => OTPPage()),
+        //   GetPage(name: '/second', page: () => VerifyOTPPage()),
+        //   GetPage(name: '/third', page: () => UserProfilePage()),
+        //
+        // ],
+        );
   }
 }
-
-
