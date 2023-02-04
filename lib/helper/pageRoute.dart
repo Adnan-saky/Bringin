@@ -10,7 +10,7 @@ class AllPages{
     return[
        GetPage(name: '/', page: () => const StartPage()),
        GetPage(name: '/second', page: () => const LoginSelect()),
-       GetPage(name: '/third', page: () =>  const SignIn()),
+       GetPage(name: '/third', page: () =>   SignIn()),
     ];
   }
 
