@@ -14,8 +14,8 @@ class _StartPage extends State<StartPage>{
   void initState() {
     // TODO: implement onInit
     super.initState();
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      Get.offAll(LoginSelect());
+    Future.delayed(Duration(seconds: 1)).then((value) {
+      Get.offAll(() => LoginSelect());
     });
   }
 
