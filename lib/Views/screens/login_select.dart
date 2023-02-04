@@ -5,17 +5,17 @@ class LoginSelect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Padding(padding: EdgeInsets.fromLTRB(0, 41, 0, 20)),
-          Image.asset('asstes/img/img1.png'),
-          Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 20)),
-          ElevatedButton(onPressed: (){}, child: Text("Join as Job Seeker")),
-          Padding(padding: EdgeInsets.fromLTRB(0, 40, 0, 40)),
-          Image.asset('asstes/img/img2.png'),
-        ],
-      ),
+    return Column(
+      children: [
+        const Padding(padding: EdgeInsets.fromLTRB(0, 41, 0, 20)),
+        Image.asset('assets/img/img2.png'),
+        const Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 20)),
+        ElevatedButton(onPressed: (){}, child: const Text("Join as Job Seeker")),
+        const Padding(padding: EdgeInsets.fromLTRB(0, 40, 0, 40)),
+        Image.asset('assets/img/img1.png'),
+        const Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 20)),
+        ElevatedButton(onPressed: (){}, child: const Text("Join as Recruiter")),
+      ],
     );
   }
 }
