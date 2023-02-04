@@ -37,7 +37,11 @@ class _OTPSentState extends State<OTPSent> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Phone Number Verification'),
+          const Text('Verify Phone',style: TextStyle(fontSize: 28),),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text('Code is sent to',style: TextStyle(fontSize: 16),),
           const SizedBox(
             height: 30,
           ),
