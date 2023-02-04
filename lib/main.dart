@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.system,
         //home: OTPPage(),
         getPages: pageList
         // [
