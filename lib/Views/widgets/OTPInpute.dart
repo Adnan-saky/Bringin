@@ -14,12 +14,16 @@ class OtpInput extends StatelessWidget {
       width: 50,
       child: TextField(
         autofocus: autoFocus,
+        obscureText : true,
+
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
         controller: controller,
         maxLength: 1,
         cursorColor: Theme.of(context).primaryColor,
         decoration: const InputDecoration(
+          filled: true,
+            fillColor: Colors.greenAccent,
             border: OutlineInputBorder(),
             counterText: '',
             hintStyle: TextStyle(color: Colors.black, fontSize: 20.0)),
