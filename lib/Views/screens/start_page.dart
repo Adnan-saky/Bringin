@@ -1,8 +1,24 @@
+import 'package:bringin/Views/screens/login_select.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class StartPage extends StatelessWidget {
+class StartPage extends StatefulWidget {
   const StartPage({Key? key}) : super(key: key);
+
+  State<StartPage> createState() => _StartPage();
+}
+class _StartPage extends State<StartPage>{
+
+  @override
+  void initState() {
+    // TODO: implement onInit
+    super.initState();
+    Future.delayed(Duration(seconds: 3)).then((value) {
+      Get.offAll(LoginSelect());
+    });
+  }
 
 
   @override
@@ -40,12 +56,12 @@ class StartPage extends StatelessWidget {
           ),
           Center(
               child: LoadingAnimationWidget.prograssiveDots(
-                color: Colors.white,
-                size: 200,
+                color: Colors.greenAccent,
+                size: 100,
               ),
           ),
           const SizedBox(
-            height: 300,
+            height: 100,
           ),
           const Text(
             'Bringin Technologies Ltd.',
