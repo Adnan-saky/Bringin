@@ -1,3 +1,4 @@
+import 'package:bringin/Views/screens/SignIn.dart';
 import 'package:bringin/Views/screens/login_select.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -9,7 +10,7 @@ class AllPages{
     return[
        GetPage(name: '/', page: () => const StartPage()),
        GetPage(name: '/second', page: () => const LoginSelect()),
-      // GetPage(name: '/third', page: () => UserProfilePage()),
+       GetPage(name: '/third', page: () =>  const SignIn()),
     ];
   }
 
