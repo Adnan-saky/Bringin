@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.5
   http: ^0.13.5
   loading_animation_widget: ^1.2.0+4
+  intl_phone_field: ^3.1.0
 
 
 dev_dependencies:
