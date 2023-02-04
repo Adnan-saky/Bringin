@@ -1,7 +1,6 @@
 import 'package:bringin/Views/screens/login_select.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class StartPage extends StatefulWidget {
