@@ -14,8 +14,8 @@ import 'SignIn.dart';
 // }
 class OTPSent extends StatefulWidget {
   final String role ;
-  final String ? phoneNumber ;
-  OTPSent({Key? key, required this.role,  this.phoneNumber}) : super(key: key);
+  final String phoneNumber ;
+  OTPSent({Key? key, required this.role, required this.phoneNumber}) : super(key: key);
 
   @override
   State<OTPSent> createState() => _OTPSentState();
@@ -32,10 +32,6 @@ class _OTPSentState extends State<OTPSent> {
   // It will be displayed in a Text widget
   String? otp;
   VarifyOTP varifyOTP = VarifyOTP();
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -75,10 +71,12 @@ class _OTPSentState extends State<OTPSent> {
                 });
                 varifyOTP.verifyOTP(
                     otpController: otp!,
-                    phoneNumber: widget.phoneNumber ?? "",
-                    role: widget.role
+                    phoneNumber: widget.phoneNumber
                 );
+                print("sadasdasdasdasdsadasdasdsas");
+                print(widget.phoneNumber);
                 print(widget.role);
+
               },
               child: const Text('Submit')),
           const SizedBox(
