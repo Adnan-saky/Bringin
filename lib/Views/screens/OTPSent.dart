@@ -1,6 +1,8 @@
+import 'package:bringin/Services/VarifyOTP.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/OTPInpute.dart';
+import 'SignIn.dart';
 
 // class OTPSent extends StatelessWidget {
 //   const OTPSent({Key? key}) : super(key: key);
@@ -11,7 +13,9 @@ import '../widgets/OTPInpute.dart';
 //   }
 // }
 class OTPSent extends StatefulWidget {
-  const OTPSent({Key? key}) : super(key: key);
+  final String role ;
+  final String ? phoneNumber ;
+  OTPSent({Key? key, required this.role,  this.phoneNumber}) : super(key: key);
 
   @override
   State<OTPSent> createState() => _OTPSentState();
@@ -26,7 +30,12 @@ class _OTPSentState extends State<OTPSent> {
 
   // This is the entered code
   // It will be displayed in a Text widget
-  String? _otp;
+  String? otp;
+  VarifyOTP varifyOTP = VarifyOTP();
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +66,19 @@ class _OTPSentState extends State<OTPSent> {
           ),
           ElevatedButton(
               onPressed: () {
+
                 setState(() {
-                  _otp = _fieldOne.text +
+                  otp = _fieldOne.text +
                       _fieldTwo.text +
                       _fieldThree.text +
                       _fieldFour.text;
                 });
+                varifyOTP.verifyOTP(
+                    otpController: otp!,
+                    phoneNumber: widget.phoneNumber ?? "",
+                    role: widget.role
+                );
+                print(widget.role);
               },
               child: const Text('Submit')),
           const SizedBox(
@@ -70,7 +86,7 @@ class _OTPSentState extends State<OTPSent> {
           ),
           // Display the entered OTP code
           Text(
-            _otp ?? 'Please enter OTP',
+            otp ?? 'Please enter OTP',
             style: const TextStyle(fontSize: 30),
           )
         ],
