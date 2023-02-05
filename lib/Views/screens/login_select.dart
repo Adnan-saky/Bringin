@@ -12,6 +12,7 @@ class LoginSelect extends StatelessWidget {
   Widget build(BuildContext context) {
     String role;
 
+
     return Scaffold(
       body: SingleChildScrollView(
         physics : const ScrollPhysics(),
@@ -38,7 +39,7 @@ class LoginSelect extends StatelessWidget {
 
                       print(role);
 
-                      Get.to(() => SignIn());
+                      Get.to(() => SignIn(role: role));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.greenAccent,
