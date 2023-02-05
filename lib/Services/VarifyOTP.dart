@@ -1,14 +1,15 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:bringin/Services/ApiConstants.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class VarifyOTP{
+
   VarifyOTP();
-  Future<void> verifyOTP(TextEditingController otpController,String phoneNumber,String role) async {
+ApiConstants api = ApiConstants();
+  Future<void> verifyOTP({required String otpController,required String phoneNumber,required String role}) async {
 
       try {
-        var uri = Uri.tryParse("https://bringin.io/api/setLoginWithOTP");
+        var uri = Uri.tryParse(ApiConstants.baseUrl+ApiConstants.setLoginWithOTP);
         if (uri == null) {
           throw Exception("Invalid URL");
         }
@@ -19,12 +20,13 @@ class VarifyOTP{
           body: jsonEncode({
             'phone': phoneNumber,
             'role': role,
-            'otp': otpController.text,
+            'otp': otpController,
           }),
         );
-        print(response.statusCode);
-
-        if (response.statusCode == 200) {
+        print("Response");
+        print(response.body);
+        final responseBody = jsonDecode(response.body);
+        if (response.statusCode == 200 /*&& responseBody['status'] != false && responseBody['note'] != 'wrong credential' */) {
           Get.snackbar(
             'Success',
             'OTP Verified Successfully',
