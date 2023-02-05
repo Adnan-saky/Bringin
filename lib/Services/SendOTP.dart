@@ -6,7 +6,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class SendOTP{
-  Future<void> _sendOTP(TextEditingController _phoneController ) async {
+  SendOTP();
+  Future<void> sendOTP(TextEditingController phoneController ) async {
       try {
         var uri = Uri.tryParse(ApiConstants.baseUrl+ApiConstants.sendOTP);
         final response = await http.post(
@@ -15,7 +16,7 @@ class SendOTP{
             'Content-Type': 'application/json',
           },
           body: jsonEncode({
-            'phone': _phoneController.text,
+            'phone': phoneController.text,
             'role': 'seekers',
           }),
         );
