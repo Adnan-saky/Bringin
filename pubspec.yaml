@@ -39,6 +39,7 @@ dependencies:
   http: ^0.13.5
   loading_animation_widget: ^1.2.0+4
   intl_phone_field: ^3.1.0
+  image_picker: ^0.8.6+1
 
 
 dev_dependencies:
