@@ -6,7 +6,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class SendOTP{
-  SendOTP();
+  final String role;
+  SendOTP(this.role);
   Future<void> sendOTP(TextEditingController phoneController ) async {
       try {
         var uri = Uri.tryParse(ApiConstants.baseUrl+ApiConstants.sendOTP);
@@ -17,7 +18,7 @@ class SendOTP{
           },
           body: jsonEncode({
             'phone': phoneController.text,
-            'role': 'seekers',
+            'role': role,
           }),
         );
         print('Status code: ${response.statusCode}');
@@ -29,7 +30,7 @@ class SendOTP{
               'OTP Sent Successfully',
               duration: const Duration(seconds: 2),
               backgroundColor: Colors.greenAccent);
-          Get.to(() =>OTPSent());
+          Get.to(() =>OTPSent(role: role,));
 
         } else {
           print("Trying to send OTP");
