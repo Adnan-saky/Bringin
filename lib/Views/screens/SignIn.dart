@@ -3,12 +3,17 @@ import 'package:bringin/Views/widgets/customText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:bringin/Services/SendOTP.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    TextEditingController phoneController = TextEditingController();
+    SendOTP sendOTPService = SendOTP();
+
     return Scaffold(
       body: Center(
           child: Column(
@@ -29,6 +34,7 @@ class SignIn extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: IntlPhoneField(
+              controller:phoneController,
               initialCountryCode: 'BD',
               decoration: const InputDecoration(
                 labelText: 'Phone Number',
@@ -44,7 +50,10 @@ class SignIn extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(0),
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async{
+                print(phoneController.text);
+               await sendOTPService.sendOTP(phoneController);
+
                 Get.to(() => OTPSent());
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.white70),
