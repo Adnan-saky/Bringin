@@ -30,7 +30,7 @@ class SendOTP{
               'OTP Sent Successfully',
               duration: const Duration(seconds: 2),
               backgroundColor: Colors.greenAccent);
-          Get.to(() =>OTPSent(role: role,));
+          Get.to(() =>OTPSent(role: role,phoneNumber: phoneController.text,));
 
         } else {
           print("Trying to send OTP");
