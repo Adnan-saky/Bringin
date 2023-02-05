@@ -6,13 +6,18 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:bringin/Services/SendOTP.dart';
 
 class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+  final String role;
+  const SignIn({Key? key, required this.role }) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
 
     TextEditingController phoneController = TextEditingController();
-    SendOTP sendOTPService = SendOTP();
+    SendOTP sendOTPService = SendOTP(role);
+    String phoneNumber;
+
 
     return Scaffold(
       body: Center(
@@ -51,10 +56,11 @@ class SignIn extends StatelessWidget {
             padding: const EdgeInsets.all(0),
             child: ElevatedButton(
               onPressed: () async{
-                print(phoneController.text);
+                phoneNumber = phoneController.text;
+                print(phoneNumber);
                await sendOTPService.sendOTP(phoneController);
 
-                Get.to(() => OTPSent());
+                Get.to(() => OTPSent(role :role,phoneNumber: phoneNumber));
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.white70),
               child: const Text('Send OTP'),
