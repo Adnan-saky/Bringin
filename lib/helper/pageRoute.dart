@@ -13,7 +13,7 @@ class AllPages{
        GetPage(name: '/second', page: () => const LoginSelect()),
        GetPage(name: '/third', page: () =>   SignIn(role: '',)),
       GetPage(name: '/fourth', page: () => OTPSent(role: '', phoneNumber: '',)),
-      GetPage(name: '/fifth', page: () => EditProfile())
+      GetPage(name: '/fifth', page: () => EditProfile(token: '',))
     ];
   }
 
