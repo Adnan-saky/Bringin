@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/imgpicker.dart';
 
@@ -12,7 +13,7 @@ class EditProfile extends StatelessWidget {
 
   final String token;
   EditProfile({required this.token});
-  final File selectedImage  = File('');
+  //final File selectedImage  = File('');
   final firstNameController = TextEditingController().obs;
   final lastNameController = TextEditingController().obs;
   final genderController = TextEditingController().obs;
@@ -27,7 +28,27 @@ class EditProfile extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final loading = false.obs;
 
+  var path = ''.obs;
+  File ? _image;
+  ImagePicker imagePicker = ImagePicker();
+
+  Future<void> onPictureSelection() async {
+    final image  = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (image  == null) return;
+
+    _image =  File(image.path);
+    path.value = _image!.path;
+    print(path.value);
+    print(_image.toString());
+
+
+  }
+
   Future<void> updateProfile() async {
+
+
+// Fetching the token
+
     print("asdasdasdasdasdsadasdsadasdwebwasdaeweggsdgsdgsdg");
 
       loading.value = true;
@@ -49,8 +70,8 @@ class EditProfile extends StatelessWidget {
             'firstName': firstNameController.value.text,
             'lastName': lastNameController.value.text,
             'gender': genderController.value.text,
-            'photo': photoController.value.text,
-            'portfolioURL': portfolioURLController.value.text,
+            'photo': _image,
+
             'educationLevel': educationLevelController.value.text,
             'DOB': DOBController.value.text,
             'bio': bioController.value.text,
@@ -110,7 +131,28 @@ class EditProfile extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    (CircularImagePicker()),
+                    (Container(
+                        height: 150,
+                        width: 150,
+                        child: GestureDetector(
+                          onTap: onPictureSelection,
+                          child: CircleAvatar(
+                              backgroundColor: Colors.grey[200],
+                              radius: 75,
+                              child:
+                              // controller.path.value == null
+                              //     ? Icon(Icons.add_a_photo, size: 50)
+                              //     :
+                              CircleAvatar(
+
+                                backgroundImage: FileImage(File(path.value)),
+                                radius: 80,
+                              )
+
+                          ),
+                        )
+
+                    )),
                     TextFormField(
                       controller: firstNameController.value,
                       decoration: InputDecoration(
@@ -147,18 +189,7 @@ class EditProfile extends StatelessWidget {
                         return null;
                       },
                     ),
-                    TextFormField(
-                      controller: photoController.value,
-                      decoration: InputDecoration(
-                        labelText: "Photo URL",
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your photo URL";
-                        }
-                        return null;
-                      },
-                    ),
+
                     TextFormField(
                       controller: portfolioURLController.value,
                       decoration: InputDecoration(
