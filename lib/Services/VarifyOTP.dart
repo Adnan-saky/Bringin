@@ -6,6 +6,7 @@ import 'dart:convert';
 class VarifyOTP{
 
   VarifyOTP();
+  String? token;
 ApiConstants api = ApiConstants();
   Future<void> verifyOTP({required String otpController,required String phoneNumber}) async {
 
@@ -23,7 +24,9 @@ ApiConstants api = ApiConstants();
         );
         print('Status code: ${response.statusCode}');
         print('Body: ${response.body}');
-
+        final data = jsonDecode(response.body);
+        token = data["data"]["token"] as String;
+        print(token);
         print(phoneNumber);
         print(otpController);
 
@@ -31,7 +34,7 @@ ApiConstants api = ApiConstants();
         if (response.statusCode == 200 /*&& responseBody['status'] != false && responseBody['note'] != 'wrong credential' */) {
           final responseBody = jsonDecode(response.body);
           if (responseBody['message'] == 'Success !') {
-            Get.to(() => EditProfile());
+            Get.to(() => EditProfile(token :token!));
           Get.snackbar(
             'Success',
             'OTP Verified Successfully',
