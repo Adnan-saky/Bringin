@@ -3,11 +3,25 @@ import 'package:bringin/Views/screens/EditProfile.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class VarifyOTP{
 
   VarifyOTP();
   String? token;
 ApiConstants api = ApiConstants();
+
+
+  Future<String?> fetchToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('token');
+  }
+// Saving the token
+  Future<void> saveToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', token);
+  }
+
   Future<void> verifyOTP({required String otpController,required String phoneNumber}) async {
 
       try {
@@ -29,6 +43,7 @@ ApiConstants api = ApiConstants();
         print(token);
         print(phoneNumber);
         print(otpController);
+        saveToken(token!);
 
         final responseBody = jsonDecode(response.body);
         if (response.statusCode == 200 /*&& responseBody['status'] != false && responseBody['note'] != 'wrong credential' */) {
