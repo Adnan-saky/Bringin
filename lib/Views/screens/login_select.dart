@@ -1,5 +1,7 @@
+import 'package:bringin/Views/screens/start_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Models/SendOTPModel.dart';
 import '../widgets/customText.dart';
@@ -21,7 +23,7 @@ class LoginSelect extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 41, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
                 child: CustomText(
                   text: 'Choose Your Role',
                   fontSize: 30,
@@ -53,7 +55,10 @@ class LoginSelect extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async{
+                    // StartPageState startPageState = StartPageState();
+                    // var sharedPref = await SharedPreferences.getInstance();
+                    // sharedPref.setBool(startPageState.token, false);
                     role  = "recruiters";
                     print(role);
                   },
