@@ -8,8 +8,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 class VarifyOTP{
 
   VarifyOTP();
-  String? token;
-ApiConstants api = ApiConstants();
+  String? _token;
+
+
+  String get token => _token!;
+
+  set token(String value) {
+    _token = value;
+  }
+
+  ApiConstants api = ApiConstants();
 
 
   Future<String?> fetchToken() async {
@@ -39,17 +47,18 @@ ApiConstants api = ApiConstants();
         print('Status code: ${response.statusCode}');
         print('Body: ${response.body}');
         final data = jsonDecode(response.body);
-        token = data["data"]["token"] as String;
-        print(token);
+        _token = data["data"]["token"] as String;
+        token = _token!;
+        print(_token);
         print(phoneNumber);
         print(otpController);
-        saveToken(token!);
+        //saveToken(token!);
 
         final responseBody = jsonDecode(response.body);
         if (response.statusCode == 200 /*&& responseBody['status'] != false && responseBody['note'] != 'wrong credential' */) {
           final responseBody = jsonDecode(response.body);
           if (responseBody['message'] == 'Success !') {
-            Get.to(() => EditProfile(token :token!));
+            Get.to(() => EditProfile(token :_token!));
           Get.snackbar(
             'Success',
             'OTP Verified Successfully',
