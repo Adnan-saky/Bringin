@@ -1,22 +1,58 @@
+import 'dart:async';
+
+import 'package:bringin/Services/VarifyOTP.dart';
+import 'package:bringin/Views/screens/EditProfile.dart';
 import 'package:bringin/Views/screens/login_select.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key? key}) : super(key: key);
 
-  State<StartPage> createState() => _StartPage();
+  State<StartPage> createState() => StartPageState();
 }
-class _StartPage extends State<StartPage>{
+class StartPageState extends State<StartPage>{
+  StartPageState();
+  VarifyOTP varifyOTP = VarifyOTP();
+   late String _token ;
 
+
+  String get token =>  varifyOTP.token;
+
+  set token(String value) {
+    _token = value;
+  }
+
+  void whereToGo() async {
+    var sharedPref = await SharedPreferences.getInstance();
+    var isLoggedIn = sharedPref.getBool(token);
+
+
+    // Timer(Duration(seconds: 3), () {
+    //   if (isLoggedIn != null) {
+    //     if (isLoggedIn) {
+    //       Get.offAll(() => EditProfile(token: token));
+    //     } else {
+    //       Get.offAll(() => LoginSelect());
+    //     }
+    //   } else {
+    //     Get.offAll(() => LoginSelect());
+    //   }
+    // });
+  }
   @override
   void initState() {
-    // TODO: implement onInit
-    super.initState();
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      Get.offAll(() => LoginSelect());
+    Timer(Duration(seconds: 3), () {
+
+        Get.offAll(() => LoginSelect());
+
     });
+
+    //whereToGo();
+    // TODO: implement initState
+    super.initState();
   }
 
 
