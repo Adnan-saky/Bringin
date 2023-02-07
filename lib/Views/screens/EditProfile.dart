@@ -153,55 +153,76 @@ class EditProfile extends StatelessWidget {
                         )
 
                     )),
-                    TextFormField(
-                      controller: firstNameController.value,
-                      decoration: InputDecoration(
-                        labelText: "First Name",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: firstNameController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "First Name",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your first name";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: lastNameController.value,
-                      decoration: InputDecoration(
-                        labelText: "Last Name",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: lastNameController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Last Name",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your last name";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: genderController.value,
-                      decoration: InputDecoration(
-                        labelText: "Gender",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: genderController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Gender",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your gender";
-                        }
-                        return null;
-                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: portfolioURLController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Portfolio URL",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
+                      ),
                     ),
 
-                    TextFormField(
-                      controller: portfolioURLController.value,
-                      decoration: InputDecoration(
-                        labelText: "Portfolio URL",
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your portfolio URL";
-                        }
-                        return null;
-                      },
-                    ),
+
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextFormField(
@@ -213,72 +234,98 @@ class EditProfile extends StatelessWidget {
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Please enter your education level";
+                            return "Error";
                           }
                           return null;
                         },
                       ),
                     ),
-                    TextFormField(
-                      controller: DOBController.value,
-                      decoration: InputDecoration(
-                        labelText: "Date of Birth",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: DOBController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "DOB",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your date of birth";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: bioController.value,
-                      decoration: InputDecoration(
-                        labelText: "Bio",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: bioController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Bio",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your bio";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: isExperienceController.value,
-                      decoration: InputDecoration(
-                        labelText: "experence",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: isExperienceController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Is Experienced",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your bio";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: skillsController.value,
-                      decoration: InputDecoration(
-                        labelText: "Skills",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: skillsController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Skills",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your bio";
-                        }
-                        return null;
-                      },
                     ),
-                    TextFormField(
-                      controller: greetingController.value,
-                      decoration: InputDecoration(
-                        labelText: "greeting",
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        controller: greetingController.value,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Greeting",
+                          //hintText: 'Enter Your Education Level',
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Error";
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please enter your bio";
-                        }
-                        return null;
-                      },
                     ),
+
                     SizedBox(
                       height: 20.0,
                     ),
